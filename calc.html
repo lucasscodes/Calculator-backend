@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <input id="value" type="number">
+    <button onclick="add()">Add</button>
+    <button onclick="subtract()">Subtract</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+    <button onclick="power()">Power</button>
+    <p id="result"></p>
+
+	<script src="./calc.ts"></script>
+    <script>
+        let calculator = new Calculator(0);
+
+        function add() {
+            let value = Number(document.getElementById('value').value);
+            calculator.add(value);
+            document.getElementById('result').innerText = "Result: " + calculator.getResult();
+        }
+
+        function subtract() {
+            let value = Number(document.getElementById('value').value);
+            calculator.subtract(value);
+            document.getElementById('result').innerText = "Result: " + calculator.getResult();
+        }
+
+        function multiply() {
+            let value = Number(document.getElementById('value').value);
+            calculator.multiply(value);
+            document.getElementById('result').innerText = "Result: " + calculator.getResult();
+        }
+
+        function divide() {
+            let value = Number(document.getElementById('value').value);
+            if (value !== 0) {
+                calculator.divide(value);
+                document.getElementById('result').innerText = "Result: " + calculator.getResult();
+            } else {
+                alert("Division by zero is not allowed");
+            }
+        }
+
+        function power() {
+            let value = Number(document.getElementById('value').value);
+            calculator.power(value);
+            document.getElementById('result').innerText = "Result: " + calculator.getResult();
+        }
+    </script>
+</body>
+</html>
